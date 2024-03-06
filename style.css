@@ -1,0 +1,182 @@
+table {
+	border: 1px solid black;
+	width : 900px;
+}
+th {
+	font-size: 30px;
+}
+.champs{
+	margin-bottom: 20px;
+	width: 25%;
+  	padding: 6px;
+}
+
+ .bouton{
+	margin-left: 3px;
+}
+
+.haut{
+	width: 15em;
+	padding: 10%;
+}
+.filbar {
+	overflow: hidden;
+	background-color: #ffffffa8;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+  }
+  
+  /* Style the navigation bar links */
+  .filbar a {
+	float: left;
+	display: block;
+	color: #000000;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+  }
+  
+  
+  /* Right-aligned link */
+  .filbar a.right {
+	float: right;
+	padding-left: 20px;
+  }
+.navbar {
+	overflow: hidden;
+	background-color: #333;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+  }
+  
+  /* Style the navigation bar links */
+  .navbar a {
+	float: left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+  }
+  
+  
+  /* Right-aligned link */
+  .navbar a.right {
+	float: right;
+	padding-left: 20px;
+  }
+  .header {
+	padding: 80px;
+	text-align: center;
+	background: #1abc9c;
+	color: white;
+  }
+  .textcentre {
+	text-align: center;
+	font-size: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+  }
+  .previewcase {
+	overflow: hidden;
+	background-color: #FFFFFF;
+	position: static;
+	border: 1px solid black;
+	border-width: 3px;
+	margin-left: 10px;
+	margin-top: 5px;
+	width:20%;
+	display: inline-block;
+  }
+  .previewp {
+	overflow: hidden;
+	text-align: center;
+	background-color: #FFFFFF;
+	position: static;
+	border: 1px solid black;
+	border-width: 1px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-left: 15px;
+	width:39%;
+	display: inline-block;
+  }
+  .previewaddress {
+	overflow: hidden;
+	background-color: #FFFFFF;
+	position: static;
+	border: 1px solid black;
+	border-width: 1px;
+	margin-left: 10px;
+	margin-top: 1px;
+	margin-left: 15px;
+	width:82%;
+	display: inline-block;
+  }
+  .previewlocataire {
+	overflow: hidden;
+	background-color: #333;
+	position: static;
+	border: 1px solid #333;
+	border-width: 1px;
+	margin-left: 10px;
+	margin-top: 1px;
+	padding-left: 15px;
+	color: #FFFFFF;
+	width:82%;
+	display: inline-block;
+  }
+
+
+
+  a:hover {
+	color: rgb(23, 0, 128);
+  }
+  a:active {
+	color: yellow;
+  }
+  .caseview {
+	overflow: hidden;
+	background-color: #FFFFFF;
+	position: static;
+	border: 1px solid black;
+	border-width: 3px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+	width:50%;
+	padding-bottom: 40px;
+	padding-left: 55px;
+	display: inline-block;
+  }
+  .textcentreinfo {
+	text-align: center;
+	font-size: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 50px;
+  }
+  .linkmargin {
+	margin-top: 25px;
+	margin-bottom: 10px;
+	margin-right: 50px;
+  }
+  .boutondef {
+	overflow: hidden;
+	text-align: center;
+	background-color: #fc0000;
+	position: static;
+	border: 1px solid rgb(255, 255, 255);
+	color: #FFFFFF;
+	border-width: 1px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-left: 100px;
+	width:50%;
+	border-radius:15px;
+	font-size: medium;
+	display: inline-block;
+  }
+  
