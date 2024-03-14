@@ -14,12 +14,13 @@ class Demande {
     {
     require "db_inc.php";
 
-    $query = "INSERT INTO demandes (TYPE_DEM, DATE_LIMITE, ARRONDISS_DEM, NUM_CLI) VALUES (:TYPE_DEM, :DATE_LIMITE, :ARRONDISS_DEM, :NUM_CLI)";
+    $query = "INSERT INTO demandes (TYPE_DEM, DATE_LIMITE, ARRONDISS_DEM, NUM_CLI, Statue) VALUES (:TYPE_DEM, :DATE_LIMITE, :ARRONDISS_DEM, :NUM_CLI, :Statue)";
         $statement = $rex->prepare($query);
         $statement->bindValue(':TYPE_DEM', $this->type_dem);
         $statement->bindValue(':DATE_LIMITE', $this->date_limite);
         $statement->bindValue(':ARRONDISS_DEM', $this->arrondissement);
         $statement->bindValue(':NUM_CLI', $this->num_cli);
+        $statement->bindValue(':Statue', "En attente");
         if($statement->execute()){
             echo "Demande ajouté";
         }else{
@@ -55,6 +56,15 @@ class Demande {
             echo "<p>Une erreur est survenu</p>";
         }
     }
+    public function getdemandeappart($type,$arrondissement)
+    {
+        require "db_inc.php";
+
+        $queryprop = $rex->prepare("SELECT * FROM demandes join clients on demandes.NUM_CLI = clients.NUM_CLI where TYPE_DEM='$type' and ARRONDISS_DEM = '$arrondissement'  ");
+        $queryprop->execute();
+        return $queryprop->fetchALL();
+    }
+    
 
 }
  ?>

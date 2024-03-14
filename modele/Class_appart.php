@@ -33,7 +33,7 @@ class Appartement {
     require "db_inc.php";
 
     $query = "INSERT INTO appartements (rue, ARRONDISSE, etage, preavis, TYPAPPART, PRIX_LOC, PRIX_CHARG, ascenseur, DATE_LIBRE, NUMEROPROP) VALUES (:rue, :arrondissement, :etage, :preavis, :typAppart, :prixLoc, :prixCharg, :ascenseur, :dateLibre, :numeroProp)";
-    $this->numeroProp = $_SESSION['proprionum']['NUMEROPROP'];
+    $this->numeroProp = $_SESSION['proprionum'];
         $statement = $rex->prepare($query);
         $statement->bindValue(':rue', $this->rue);
         $statement->bindValue(':arrondissement', $this->arrondissement);
@@ -63,14 +63,14 @@ class Appartement {
     {
         require "db_inc.php";
 
-        $queryprop = $rex->prepare("SELECT * FROM appartements join proprietaires on proprietaires.NUMEROPROP = appartements.NUMEROPROP where NUMAPPART = $id");
+        $queryprop = $rex->prepare("SELECT * FROM appartements join Clients on Clients.NUM_CLI = appartements.NUMEROPROP where NUMAPPART = $id");
         $queryprop->execute();
 		return $queryprop->fetch();
     }
     public function getvosappart($id)
     {
         require "db_inc.php";
-        $queryprop = $rex->prepare("SELECT * FROM appartements JOIN proprietaires ON proprietaires.NUMEROPROP = appartements.NUMEROPROP WHERE LOGINpro = :login_pro");
+        $queryprop = $rex->prepare("SELECT * FROM appartements JOIN Clients ON Clients.NUM_CLI = appartements.NUMEROPROP WHERE LOGIN = :login_pro");
         $queryprop->bindParam(':login_pro', $id);
         $queryprop->execute();
 		return $queryprop->fetchAll();

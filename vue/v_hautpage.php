@@ -13,7 +13,6 @@
 
 <?php
 if(!isset($_SESSION['pseudo'])){
-    echo "<a href='..\index.php?action=appartement'class=case> Appartments </a>";
     echo "<a href='..\index.php?action=inscription'class=case> Inscription </a>";
      echo "<a href='..\index.php?action=connexion'class=case> S'identifier </a>";
 
