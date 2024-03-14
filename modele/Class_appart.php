@@ -33,7 +33,10 @@ class Appartement {
     require "db_inc.php";
 
     $query = "INSERT INTO appartements (rue, ARRONDISSE, etage, preavis, TYPAPPART, PRIX_LOC, PRIX_CHARG, ascenseur, DATE_LIBRE, NUMEROPROP) VALUES (:rue, :arrondissement, :etage, :preavis, :typAppart, :prixLoc, :prixCharg, :ascenseur, :dateLibre, :numeroProp)";
-    $this->numeroProp = $_SESSION['proprionum'];
+    $querynum=$rex->prepare("SELECT NUM_CLI FROM Clients WHERE LOGIN='".$_SESSION['pseudo']."'");
+    $querynum->execute();
+    $num = $querynum->fetch();
+    $this->numeroProp = $num[0];
         $statement = $rex->prepare($query);
         $statement->bindValue(':rue', $this->rue);
         $statement->bindValue(':arrondissement', $this->arrondissement);

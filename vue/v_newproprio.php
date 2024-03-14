@@ -18,7 +18,7 @@ include ('v_hautpage.php');
  <?php
 
 
-            if(!isset($TraitementFini)){//quand le membre sera connecté, on définira cette variable afin de cacher le formulaire
+            if(!isset($_SESSION['proprio'])){//quand le membre sera connecté, on définira cette variable afin de cacher le formulaire
                 ?>
 				<div class=fond>
 				<div class=centre>

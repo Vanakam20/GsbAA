@@ -20,7 +20,6 @@ echo "<a class=case href='v_appartement.php?filtre=Vos&nbsp;Apparement&info=vosa
 }
 
 echo "</div>";
-
 if(isset($_GET['filtre'])){
     ECHO "<h1>".$_GET['filtre']."</h1>";
      }

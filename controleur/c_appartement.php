@@ -1,8 +1,11 @@
 <?php
 include ("../modele/session.php");
 require "..\modele\Class_appart.php";
+require "..\modele\Class_proprio.php";
 $recup = array();
 $Appartement = new Appartement();
+$PROPRIETAIRES = new PROPRIETAIRES();
+$PROPRIETAIRES->verifpro($_SESSION['pseudo']);
 if(isset($_GET['filtre'])){
     if($_GET['info']=="vosappart"){
         $recup = $Appartement->getvosappart($_SESSION['pseudo']);

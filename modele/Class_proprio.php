@@ -1,6 +1,5 @@
 <?php
-require "..\modele\Class_client.php";
-class PROPRIETAIRES extends Client {
+class PROPRIETAIRES{
 
 
     // Constructeur
@@ -9,7 +8,7 @@ class PROPRIETAIRES extends Client {
     }
 	
 
-public function inscription($Login) {
+public function inscriptionpro($Login) {
     require "db_inc.php";
 							
                                     if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' and PROPRIETAIRES=1")->rowCount()!=0){//si mysqli_num_rows retourne pas 0
@@ -19,7 +18,7 @@ public function inscription($Login) {
 										$recupCLI->execute();
 										$recup = $recupCLI->fetchALL();
 										$sql = $rex->prepare("Update Clients set PROPRIETAIRES = 0 where LOGIN = '$Login'");
-                                        if($rex->execute($sql)){
+                                        if($sql->execute()){
                                             echo "Inscrit avec succès!";
                                             $_SESSION['proprio'] = 1;
                                             $TraitementFini=true;//pour cacher le formulaire
