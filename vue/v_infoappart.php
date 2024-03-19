@@ -43,8 +43,8 @@ for($i=0;$i<count($recupLocataires);$i++)
     ECHO "<p class='previewlocataire'>Locataire: ".$recupLocataires[$i]['NOM_LOC'].",".$recupLocataires[$i]['PRENOM_LOC'].", Tel: ".$recupLocataires[$i]['TEL_LOC']."</p>";
     }
 }
-if($_SESSION['proprio']==$recup['LOGIN']){
-ECHO "<a class='previewp' href='v_modiflocataire.php?id=".$recup['NUMAPPART']."'>Modifier le locataire</a><br>";
+
+if($_SESSION['proprionum']==$recup['NUMAPPART']){
 echo "<p class='previewp'>Total des cotisations à payer à l'année : " . $totalCotisations . " euros</p>";
 echo "<h3 class='textcentreinfo'>Mois/".$recup['PRIX_LOC']."€ HT</h3>";
 
@@ -52,13 +52,14 @@ echo "<h3 class='textcentreinfo'>Mois/".$recup['PRIX_LOC']."€ HT</h3>";
     if($nbl==0){
             echo "<a class=previewp href='v_locataire.php?id=".$recup['NUMAPPART']."'>Ajoutée un locataire</a><br>";
     }elseif($nbl==1 && !isset($_GET['effacer'])){
-            echo "<a class=previewp href='v_infoappart.php?id=".$recup['NUMAPPART']."&effacer=1'>Supprimer le locataire</a><br>";
+        ECHO "<a class='previewp' href='v_modiflocataire.php?id=".$recup['NUMAPPART']."'>Modifier le locataire</a><br>";   
+        echo "<a class=previewp href='v_infoappart.php?id=".$recup['NUMAPPART']."&effacer=1'>Supprimer le locataire</a><br>";
     }
     echo "<a class=previewp href='v_appartement.php?id=".$recup['NUMAPPART']."&effacerappart=1'>Supprimer l'appartement</a><br>";
 }
 echo "</div>";
 $nb2 = count($recupVisite);
-if($_SESSION['proprio']!=$recup['LOGIN']){
+if($_SESSION['proprionum']!=$recup['NUMAPPART']){
 if($nb2==0 && $nbl==0){
 echo "<div class='caseview' >";
 echo "<h3 class='textcentreinfo'>Visite</h3>";

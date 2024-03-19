@@ -43,9 +43,9 @@ for($i=0;$i<$nb;$i++){
 echo "</select>";
 ?>
                 <p>Préavis ? :</p>
-                <input type="radio" id="contactChoice1" name="preavis" value="1" />
+                <input type="radio" id="contactChoice1" name="preavis" value="1" required/>
                 <label for="contactChoice1">Oui</label>
-                <input type="radio" id="contactChoice2" name="preavis" value="0" />
+                <input type="radio" id="contactChoice2" name="preavis" value="0" required/>
                 <label for="contactChoice2">Non</label><br>
 
                 <select name="typeappart" class='champs'>
@@ -60,9 +60,9 @@ echo "</select>";
 </select><br>
 
                 <p>Ascenseur ? :</p>
-                <input class="bouton" type="radio" id="ascenseurChoice1" name="ascenseur" value="1" />
+                <input class="bouton" type="radio" id="ascenseurChoice1" name="ascenseur" value="1" required/>
                 <label for="ascenseurChoice1">Oui</label>
-                <input type="radio" id="ascenseurChoice2" name="ascenseur" value="0" />
+                <input type="radio" id="ascenseurChoice2" name="ascenseur" value="0" required/>
                 <label for="ascenseurChoice2">Non</label><br>
 
                 <input class='champs' type="text" name="prixloc" placeholder="Prix de la location au mois" required><br>

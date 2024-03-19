@@ -17,7 +17,7 @@ public function inscriptionpro($Login) {
 										$recupCLI = $rex->prepare("SELECT * FROM Clients WHERE LOGIN='$Login'");
 										$recupCLI->execute();
 										$recup = $recupCLI->fetchALL();
-										$sql = $rex->prepare("Update Clients set PROPRIETAIRES = 0 where LOGIN = '$Login'");
+										$sql = $rex->prepare("Update Clients set PROPRIETAIRES = 1 where LOGIN = '$Login'");
                                         if($sql->execute()){
                                             echo "Inscrit avec succès!";
                                             $_SESSION['proprio'] = 1;
