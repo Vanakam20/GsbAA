@@ -78,12 +78,11 @@ class Appartement {
         $queryprop->execute();
 		return $queryprop->fetchAll();
     }
-    public function getappartarrondis($arrondis,$type)
+    public function getappartdem($num)
     {
         require "db_inc.php";
-        $queryprop = $rex->prepare("SELECT * FROM appartements WHERE ARRONDISSE = :arondiss and TYPAPPART = :type");
-        $queryprop->bindParam(':arondiss', $arrondis);
-        $queryprop->bindParam(':type', $type);
+        $queryprop = $rex->prepare("SELECT demandes_tj.NUMAPPART,RUE,ARRONDISSE,ETAGE,ASCENSEUR,PRIX_LOC,TYPAPPART,PREAVIS,PRIX_CHARG,DATE_LIBRE,NUMEROPROP from demandes_tj join appartements on demandes_tj.NUMAPPART = appartements.NUMAPPART where demandes_tj.NUM_DEM = :num_dem");
+        $queryprop->bindParam(':num_dem', $num);
         $queryprop->execute();
 		return $queryprop->fetchAll();
     }

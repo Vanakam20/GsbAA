@@ -38,5 +38,17 @@ if(isset($_GET['effacervisite'])){
     $Visite->deletevisite($_SESSION['pseudo'],$recup['NUMAPPART']);
     header("Refresh:0 url=v_infoappart.php?id=$id");
 }
-$infodemande=$Demande->getdemandeappart($recup['TYPAPPART'],$recup['ARRONDISSE']);
+if(isset($_GET['acceptedem'])){
+    if($_GET['acceptedem']==0){
+    $Demande->deletedemandeappart($_GET['id_demande'],$_GET['id']);
+    }else{
+    $Demande->accepterdemandeappart($_GET['id_demande']);
+    $Demande->deletedemandetj($_GET['id_demande'],$_GET['id']);
+    }
+    //header("Refresh:0 url=v_infoappart.php?id=$id");
+}
+if(isset($_GET['id_dem'])){
+    $Demande->deletedemande($_GET['id_dem']);
+}
+$infodemande=$Demande->getdemandeapparttj($recup['NUMAPPART']);
 ?>

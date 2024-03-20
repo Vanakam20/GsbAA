@@ -40,7 +40,7 @@ class Demande {
     {
         require "db_inc.php";
 
-        $queryprop = $rex->prepare("SELECT * FROM demandes join clients on demandes.NUM_CLI = clients.NUM_CLI where LOGIN = '$id'");
+        $queryprop = $rex->prepare("select distinct demandes.NUM_DEM,TYPE_DEM,DATE_LIMITE,ARRONDISS_DEM,Statue,demandes.NUM_CLI from demandes_tj join demandes on demandes_tj.NUM_DEM = demandes.NUM_DEM where demandes.NUM_CLI ='$id'");
         $queryprop->execute();
     return $queryprop->fetchALL();
     }
@@ -64,6 +64,50 @@ class Demande {
         $queryprop->execute();
         return $queryprop->fetchALL();
     }
+
+    public function deletedemandeappart($id,$id_appart)
+    {
+        require "db_inc.php";
+
+        $queryprop = $rex->prepare("DELETE FROM demandes_tj where NUM_DEM = $id and NUMAPPART = $id_appart");
+        $queryprop->execute();
+        if($queryprop->execute()==True){
+            echo "<p>Demande refuser</p>";
+        }else{
+            echo "<p>Une erreur est survenu</p>";
+        }
+    }
+
+    public function accepterdemandeappart($id)
+    {
+        require "db_inc.php";
+
+        $queryprop = $rex->prepare("Update demandes set Statue = 'Accepter' where NUM_DEM = '$id'");
+        $queryprop->execute();
+        if($queryprop->execute()==True){
+            echo "<p>Demande accepter</p>";
+        }else{
+            echo "<p>Une erreur est survenu</p>";
+        }
+    }
+
+    public function deletedemandetj($id,$id_appart)
+    {
+        require "db_inc.php";
+
+        $queryprop = $rex->prepare("DELETE FROM demandes_tj where NUM_DEM = $id and NUMAPPART not in ($id_appart)");
+        $queryprop->execute();
+    }
+
+    public function getdemandeapparttj($id)
+    {
+        require "db_inc.php";
+
+        $queryprop = $rex->prepare("SELECT * FROM demandes join demandes_tj on demandes.NUM_DEM = demandes_tj.NUM_DEM join clients on demandes.NUM_CLI = clients.NUM_CLI where NUMAPPART='$id'");
+        $queryprop->execute();
+        return $queryprop->fetchALL();
+    }
+
     
 
 }

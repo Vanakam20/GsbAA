@@ -27,6 +27,12 @@ echo "<a class='overlay' href='v_modifmembre.php?id=CODEVILLE_CLI&type=Code&nbsp
 echo "<p class='previewaddress'>Tel : ".$recup['TEL_CLI']."</p>";
 echo "<a class='overlay' href='v_modifmembre.php?id=TEL_CLI&type=Tel'>Modifier</a>";
 echo "<a class='previewaddress' href='v_modifmdp.php'>Changer de mot de passe</a><br>";
+ if(isset($_SESSION['proprionum'])){
+for($i=0;$i<count($recupAppart);$i++){
+$total =+ $recupAppart[$i]['PRIX_LOC'] ;
+}
+echo "<p> Salaire total :".$total."</p>";
+}
 ?>
 <form method='post' action='v_Accueil.php'>
 <button class="boutondef" Name="valider" type='submit' onclick="return confirm('Êtes vous sure ?');">Supprimer définitivement votre compte.</button>

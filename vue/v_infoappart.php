@@ -43,8 +43,8 @@ for($i=0;$i<count($recupLocataires);$i++)
     ECHO "<p class='previewlocataire'>Locataire: ".$recupLocataires[$i]['NOM_LOC'].",".$recupLocataires[$i]['PRENOM_LOC'].", Tel: ".$recupLocataires[$i]['TEL_LOC']."</p>";
     }
 }
-
-if($_SESSION['proprionum']==$recup['NUMAPPART']){
+if(isset($_SESSION['proprionum'])){
+if($_SESSION['proprionum'][0]==$recup['NUMEROPROP']){
 echo "<p class='previewp'>Total des cotisations à payer à l'année : " . $totalCotisations . " euros</p>";
 echo "<h3 class='textcentreinfo'>Mois/".$recup['PRIX_LOC']."€ HT</h3>";
 
@@ -56,10 +56,12 @@ echo "<h3 class='textcentreinfo'>Mois/".$recup['PRIX_LOC']."€ HT</h3>";
         echo "<a class=previewp href='v_infoappart.php?id=".$recup['NUMAPPART']."&effacer=1'>Supprimer le locataire</a><br>";
     }
     echo "<a class=previewp href='v_appartement.php?id=".$recup['NUMAPPART']."&effacerappart=1'>Supprimer l'appartement</a><br>";
-}
+    }//fin if
+}//fin if
 echo "</div>";
 $nb2 = count($recupVisite);
-if($_SESSION['proprionum']!=$recup['NUMAPPART']){
+if(isset($_SESSION['proprionum'][0])){
+if($_SESSION['proprionum'][0]!=$recup['NUMEROPROP']){
 if($nb2==0 && $nbl==0){
 echo "<div class='caseview' >";
 echo "<h3 class='textcentreinfo'>Visite</h3>";
@@ -81,16 +83,21 @@ echo "</div>";
     }
     }
 }
-if($_SESSION['proprio']==$recup['LOGIN']){
+}
+if(isset($_SESSION['proprionum'])){
+if($_SESSION['proprionum'][0]==$recup['NUMEROPROP']){
     if(count($infodemande)>0){
         for($i=0;$i<count($infodemande);$i++){
+            if($infodemande[$i]['Statue']=='En attente'){
         echo "<div class='caseview' >";
         echo "<h3 class='textcentreinfo'>Demande</h3>";
         ECHO "<p class='previewaddress'>DE : ".$infodemande[$i]['PRENOM_CLI']." ".$infodemande[$i]['NOM_CLI']."</p><br>";
-        echo "<a class=previewp   href='v_infoappart.php?id=".$recup['NUMAPPART']."&effacervisite=1'>Accepter</a> <a class=previewp  href='v_infoappart.php?id=".$recup['NUMAPPART']."&effacervisite=1'>Refuser</a>";
+        echo "<a class=previewp   href='v_infoappart.php?id=".$recup['NUMAPPART']."&acceptedem=1&id_demande=".$infodemande[$i]['NUM_DEM']."'>Accepter</a> <a class=previewp  href='v_infoappart.php?id=".$recup['NUMAPPART']."&acceptedem=0&id_demande=".$infodemande[$i]['NUM_DEM']."'>Refuser</a>";
         echo "</div>";
-        }
     }
+    }
+    }
+}
 }
  ?>
 </body>

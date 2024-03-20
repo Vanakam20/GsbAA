@@ -20,10 +20,14 @@ if($nb==0){
 for($i=0;$i<$nb;$i++)
 {
 echo "<div class='previewcase' >";
-echo "<a class='overlay' href='v_appartement.php?arrondis=".$recup[$i]['ARRONDISS_DEM']."&filtre=".$recup[$i]['TYPE_DEM']."&nbsp;Dans&nbsp;le&nbsp;".$recup[$i]['ARRONDISS_DEM']."&info=demande&type=".$recup[$i]['TYPE_DEM']."'>";
+if($recup[$i]['Statue'] == "En attente"){
+echo "<a class='overlay' href='v_appartement.php?num_dem=".$recup[$i]['NUM_DEM']."&filtre=".$recup[$i]['TYPE_DEM']."&nbsp;Dans&nbsp;le&nbsp;".$recup[$i]['ARRONDISS_DEM']."&info=demande&type=".$recup[$i]['TYPE_DEM']."'>";
+}else{
+    echo "<a class='overlay' href='v_locataire_dem.php?num_dem=".$recup[$i]['NUM_DEM']."&id_cli=".$recup[$i]['NUM_CLI']."'>";
+}
 echo "<h3 class='textcentre'>".$recup[$i]['TYPE_DEM']."</h3>";
 ECHO "<p class='previewaddress'>Dans le  ".$recup[$i]['ARRONDISS_DEM']."</p><br>";
-echo "<p class='previewp'>Jusqu'au: ".$recup[$i]['DATE_LIMITE']."</p> ";
+echo "<p class='previewp'>Jusqu'au: ".$recup[$i]['DATE_LIMITE']."</p><p class='previewp'>Statue : ".$recup[$i]['Statue']."</p>";
 echo "</a>";
 echo "<a class=previewaddress href='v_vosdemande.php?id=".$recup[$i]['NUM_DEM']."&effacedemande=1'>Supprimer la demande</a><br>";
 echo "</div>";

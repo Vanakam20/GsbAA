@@ -10,7 +10,7 @@ if(isset($_GET['filtre'])){
     if($_GET['info']=="vosappart"){
         $recup = $Appartement->getvosappart($_SESSION['pseudo']);
     }else{
-        $recup = $Appartement->getappartarrondis($_GET['arrondis'],$_GET['type']);
+        $recup = $Appartement->getappartdem($_GET['num_dem']);
     }
 }else{
 $recup = $Appartement->getallappart();
