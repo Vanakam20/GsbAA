@@ -28,10 +28,11 @@ echo "<p class='previewaddress'>Tel : ".$recup['TEL_CLI']."</p>";
 echo "<a class='overlay' href='v_modifmembre.php?id=TEL_CLI&type=Tel'>Modifier</a>";
 echo "<a class='previewaddress' href='v_modifmdp.php'>Changer de mot de passe</a><br>";
  if(isset($_SESSION['proprionum'])){
+     $total=0;
 for($i=0;$i<count($recupAppart);$i++){
-$total =+ $recupAppart[$i]['PRIX_LOC'] ;
+$total = $recupAppart[$i]['PRIX_LOC'] + $total ;
 }
-echo "<p> Salaire total :".$total."</p>";
+echo "<p> Salaire total brut :<h2>".$total. " €</h2></p>";
 }
 ?>
 <form method='post' action='v_Accueil.php'>
