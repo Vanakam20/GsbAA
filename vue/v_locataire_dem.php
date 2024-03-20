@@ -32,7 +32,10 @@ echo "</div>";
                 ?>
 </div>
 <div class=form>
-
+<label>
+    Veuillez saisir votre date de naissance :
+    <input class='champs' type="date" name="bday">
+  </label>
   </div>
   
                 <input class='champs' type="submit" name="valider" value="Ajoutée" class="registerbtn" >
