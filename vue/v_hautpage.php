@@ -17,11 +17,11 @@ if(!isset($_SESSION['pseudo'])){
      echo "<a href='..\index.php?action=connexion'class=case> S'identifier </a>";
 
  } else {
-     echo "<a href='../index.php?action=demande'class=case> Demander un Appartements </a>";
      echo "<a href='..\index.php?action=appartement'class=case> Appartments </a>";
-     echo "<a href='..\index.php?action=vosdemande'class=case>Vos demandes</a>";
      if(!isset($_SESSION['proprio']) ) {
         echo "<a href='..\index.php?action=new-proprio'class=case> Vous êtes Proprio ? </a>";
+        echo "<a href='../index.php?action=demande'class=case> Demander un Appartements </a>";
+        echo "<a href='..\index.php?action=vosdemande'class=case>Vos demandes</a>";
     }else{
         echo "<a href='..\index.php?action=immobiliere'class=case> Ajouter de immobiliére </a>";
     }
