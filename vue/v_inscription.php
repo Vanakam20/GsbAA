@@ -32,9 +32,9 @@ include ('v_hautpage.php');
                 <input class='champs' type="password" name="mdp" placeholder="Votre mot de passe" required>
                 <input class='champs' type="password" name="mdpverif" placeholder="Confirmer Votre mot de passe" required><br>
                 <input class='champs' type="text" name="ville" placeholder="ville" required>
-                <input class='champs' type="text" name="tel" placeholder="Tel" required>
+                <input class='champs' type="text" pattern="[0-9]{9}" name="tel" placeholder="Tel" required>
 				<input class='champs' type="text" name="adresse" placeholder="adresse" required>
-				<input class='champs' type="text" name="codepostal" placeholder="codepostal" required>
+				<input class='champs' type="text"  pattern="[0-9]{5}" name="codepostal" placeholder="codepostal" required>
                 <div class=form>
 </div>
 <div class=form>

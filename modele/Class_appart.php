@@ -58,7 +58,7 @@ class Appartement {
     {
         require "db_inc.php";
 
-        $queryprop = $rex->prepare("SELECT * FROM appartements");
+        $queryprop = $rex->prepare("SELECT appartements.NUMAPPART,RUE,ARRONDISSE,ETAGE,ASCENSEUR,PRIX_LOC,TYPAPPART,PREAVIS,PRIX_CHARG,DATE_LIBRE FROM appartements JOIN locataires ON appartements.NUMAPPART != locataires.NUMAPPART ");
         $queryprop->execute();
 		return $queryprop->fetchAll();
     }
@@ -81,7 +81,7 @@ class Appartement {
     public function getappartdem($num)
     {
         require "db_inc.php";
-        $queryprop = $rex->prepare("SELECT demandes_tj.NUMAPPART,RUE,ARRONDISSE,ETAGE,ASCENSEUR,PRIX_LOC,TYPAPPART,PREAVIS,PRIX_CHARG,DATE_LIBRE,NUMEROPROP from demandes_tj join appartements on demandes_tj.NUMAPPART = appartements.NUMAPPART where demandes_tj.NUM_DEM = :num_dem");
+        $queryprop = $rex->prepare("SELECT demandes_tj.NUMAPPART,RUE,ARRONDISSE,ETAGE,ASCENSEUR,PRIX_LOC,TYPAPPART,PREAVIS,PRIX_CHARG,DATE_LIBRE,NUMEROPROP from demandes_tj join appartements on demandes_tj.NUMAPPART = appartements.NUMAPPART JOIN locataires ON appartements.NUMAPPART != locataires.NUMAPPART where demandes_tj.NUM_DEM = :num_dem");
         $queryprop->bindParam(':num_dem', $num);
         $queryprop->execute();
 		return $queryprop->fetchAll();

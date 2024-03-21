@@ -5,7 +5,9 @@ require "..\modele\Class_proprio.php";
 $recup = array();
 $Appartement = new Appartement();
 $PROPRIETAIRES = new PROPRIETAIRES();
+if(isset($_SESSION['pseudo'])){
 $PROPRIETAIRES->verifpro($_SESSION['pseudo']);
+}
 if(isset($_GET['filtre'])){
     if($_GET['info']=="vosappart"){
         $recup = $Appartement->getvosappart($_SESSION['pseudo']);

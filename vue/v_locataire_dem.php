@@ -26,7 +26,7 @@ echo "</div>";
              echo "<input class='champs' type='text' name='prenom' value=".$loc['PRENOM_CLI']." required><br>";
              echo "<input class='champs' type='text' name='rib' placeholder='Votre RIB' required>";
              echo "<input class='champs' type='text' name='tel' value=".$loc['TEL_CLI']." required>";
-             echo "<input class='champs' type='text' name='tel_banque' placeholder='Tel Banque' required>";
+             echo "<input class='champs' type='text' pattern='[0-9]{9}' name='tel_banque' placeholder='Tel Banque' required>";
              echo "<input class='champs' type='text' name='codepostal' value=".$loc['CODEVILLE_CLI']." required>";
              echo "<div class=form>";
                 ?>

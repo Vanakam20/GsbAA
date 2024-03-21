@@ -27,9 +27,9 @@ echo "</div>";
 			    <input class='champs' type="text" name="nom" placeholder="nom" required>
                 <input class='champs' type="text" name="prenom" placeholder="prenom" required><br>
                 <input class='champs' type="text" name="rib" placeholder="Votre RIB " required>
-                <input class='champs' type="text" name="tel" placeholder="Tel" required>
-				<input class='champs' type="text" name="tel_banque" placeholder="Tel Banque" required>
-				<input class='champs' type="text" name="codepostal" placeholder="codepostal" required>
+                <input class='champs' pattern="[0-9]{10}"  type="text" name="tel" placeholder="Tel" required>
+				<input class='champs' type="text" pattern="[0-9]{10}" name="tel_banque" placeholder="Tel Banque" required>
+				<input class='champs' type="text"  pattern="[0-9]{5}" name="codepostal" placeholder="codepostal" required>
                 <div class=form>
 </div>
 <div class=form>

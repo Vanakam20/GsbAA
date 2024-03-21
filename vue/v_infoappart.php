@@ -59,7 +59,8 @@ echo "<h3 class='textcentreinfo'>Mois/".$recup['PRIX_LOC']."€ HT</h3>";
     }//fin if
 }//fin if
 echo "</div>";
-$nb2 = count($recupVisite);
+if(isset($_SESSION['pseudo'])){
+    $nb2 = count($recupVisite);
 if(!isset($_SESSION['proprionum'][0])){
 if($nb2==0 && $nbl==0){
 echo "<div class='caseview' >";
@@ -83,8 +84,10 @@ echo "</div>";
     }
 
 }
+}
+
 if(isset($_SESSION['proprionum'])){
-if($_SESSION['proprionum'][0]==$recup['NUMEROPROP']){
+if($_SESSION['proprionum'][0]==$recup['NUMEROPROP'] && $nbl==0){
     if(count($infodemande)>0){
         for($i=0;$i<count($infodemande);$i++){
             if($infodemande[$i]['Statue']=='En attente'){

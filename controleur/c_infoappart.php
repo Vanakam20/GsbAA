@@ -18,8 +18,9 @@ $Demande = new Demande();
 $recup = $Appartement->getappart($id);
 $recupLocataires = $Locataires->getlocataire($recup['NUMAPPART']);
 $totalCotisations = $Appartement->calculerCotisationsParis($recup['PRIX_LOC']);
+if(isset($_SESSION['pseudo'])){
 $recupVisite = $Visite->getvisite($_SESSION['pseudo'],$recup['NUMAPPART']);
-
+}
 if(isset($_POST['valider'])){
     $Locataires->setlocataire($_POST['nom'],$_POST['prenom'], $_POST['bday'], $_POST['tel'],$_POST['rib'], $_POST['tel_banque'], $recup['NUMAPPART']);
     $Locataires->addlocataire();

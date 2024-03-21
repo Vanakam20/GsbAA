@@ -67,7 +67,7 @@ echo "</select>";
 
                 <input class='champs' type="text" name="prixloc" placeholder="Prix de la location au mois" required><br>
                 
-                <input class='champs' type="text" name="prixcharge" placeholder="Prix des charges" required><br>
+                <input class='champs'type="text" name="prixcharge" placeholder="Prix des charges" required><br>
 
                 <div class=form>
 </div>
