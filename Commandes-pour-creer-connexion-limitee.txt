@@ -1,0 +1,11 @@
+CREATE USER connexion1 IDENTIFIED BY "xyz";
+CREATE ROLE selectaa_gsb;
+GRANT SELECT ON bridge.* TO selectaa_gsb;
+GRANT selectbridge TO connexion1;
+SET DEFAULT ROLE ALL TO connexion1;
+
+CREATE USER connexion2 IDENTIFIED BY "xyz";
+CREATE ROLE insertbridge;
+GRANT INSERT ON bridge.* TO insertbridge;
+GRANT insertbridge TO connexion2;
+SET DEFAULT ROLE ALL TO connexion2;
