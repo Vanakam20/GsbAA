@@ -15,3 +15,10 @@ CREATE ROLE uptade_del_aa_gsb;
 GRANT UPDATE, DELETE, SELECT ON aa_gsb.* TO insertaa_gsb;
 GRANT insertaa_gsb TO connexion3;
 SET DEFAULT ROLE ALL TO connexion3;
+
+
+db_insert  $rex_insert 
+
+db_select
+
+db_update

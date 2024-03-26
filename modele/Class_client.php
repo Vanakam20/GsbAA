@@ -36,7 +36,14 @@ public function inscription() {
 	}
 }
 
+public function verifadmin($Login) {
+   
+    require "db_select.php";
+    if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' and Admin=1")->rowCount()!=0){
+        $_SESSION['admin'] = 1;
+    }
 
+}
 public function connexion($Login, $Mdp) {
    
     require "db_select.php";
@@ -116,6 +123,14 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
             echo "<p>Une erreur est survenu</p>";
         }
 
+    }
+    public function getAllcilent()
+    {
+        require "db_select.php";
+
+        $queryprop = $rex->prepare("SELECT * FROM clients");
+        $queryprop->execute();
+        return $queryprop->fetch();
     }
 }
  ?>

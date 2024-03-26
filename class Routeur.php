@@ -69,6 +69,11 @@ class Routeur
 					$this->_route = 'vue\v_espacemembre.php';
 					break;
 				}
+			case 'admin' :
+				{
+					$this->_route = 'vue\v_admin.php';
+					break;
+				}
 					
 			default:
 			{ 	$this->_route = 'vue\v_erreur.php' ; }

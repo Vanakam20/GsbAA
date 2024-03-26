@@ -26,11 +26,15 @@ if(!isset($_SESSION['pseudo'])){
     }else{
         echo "<a href='..\index.php?action=immobiliere'class=case> Ajouter de immobiliére </a>";
     }
+    if(!isset( $_SESSION['admin']) ) {
+        echo "<a href='..\index.php?action=admin'class=case> Tableau de bord </a>";
+    }
     echo "<a href='..\index.php?action=espace'class=case>".$_SESSION['pseudo']."</a>";
     echo "<a href='../index.php?action=deconnexion'class=case> Déconnexion </a>";
+
  }
 
- 
+
 ?>
 </div>
 </table>
