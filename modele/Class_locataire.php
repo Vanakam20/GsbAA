@@ -25,10 +25,10 @@ class Locataires {
     }
     public function addlocataire()
     {
-    require "db_inc.php";
+    require "db_insert.php";
 
     $query = "INSERT INTO locataires (NOM_LOC, PRENOM_LOC, DATENAISS, TEL_LOC, R_I_B, TEL_BANQUE, NUMAPPART) VALUES (:NOM_LOC, :PRENOM_LOC, :DATENAISS, :TEL_LOC, :R_I_B, :TEL_BANQUE, :NUMAPPART)";
-        $statement = $rex->prepare($query);
+        $statement = $rex_insert->prepare($query);
         $statement->bindValue(':NOM_LOC', $this->NOM_LOC);
         $statement->bindValue(':PRENOM_LOC', $this->PRENOM_LOC);
         $statement->bindValue(':DATENAISS', $this->DATENAISS);
@@ -44,7 +44,7 @@ class Locataires {
     }
     public function getlocataire($id)
     {
-        require "db_inc.php";
+        require "db_select.php";
 
         $queryprop = $rex->prepare("SELECT * FROM locataires join appartements on locataires.NUMAPPART = appartements.NUMAPPART where locataires.NUMAPPART = $id");
         $queryprop->execute();
@@ -52,7 +52,7 @@ class Locataires {
     }
     public function getvosappart($id)
     {
-        require "db_inc.php";
+        require "db_select.php";
         $queryprop = $rex->prepare("SELECT * FROM locataires JOIN proprietaires ON proprietaires.NUMEROPROP = appartements.NUMEROPROP WHERE LOGINpro = :login_pro");
         $queryprop->bindParam(':login_pro', $id);
         $queryprop->execute();
@@ -60,7 +60,7 @@ class Locataires {
     }
     public function deletelocataire($id)
     {
-        require "db_inc.php";
+        require "db_update.php";
 
         $queryprop = $rex->prepare("DELETE FROM locataires where NUMAPPART = $id");
         $queryprop->execute();
@@ -72,7 +72,7 @@ class Locataires {
     }
     public function updateloca($id,$colonne,$new)
     {
-        require "db_inc.php";
+        require "db_update.php";
 
         $queryprop = $rex->prepare("Update locataires set $colonne = '$new' where NUMAPPART = '$id'");
         $queryprop->execute();

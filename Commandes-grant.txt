@@ -1,0 +1,17 @@
+CREATE USER connexion1 IDENTIFIED BY "xyz";
+CREATE ROLE selectaa_gsb;
+GRANT SELECT ON aa_gsb.* TO selectaa_gsb;
+GRANT selectaa_gsb TO connexion1;
+SET DEFAULT ROLE ALL TO connexion1;
+
+CREATE USER connexion2 IDENTIFIED BY "xyz";
+CREATE ROLE insertaa_gsb;
+GRANT INSERT ON aa_gsb.* TO insertaa_gsb;
+GRANT insertaa_gsb TO connexion2;
+SET DEFAULT ROLE ALL TO connexion2;
+
+CREATE USER connexion3 IDENTIFIED BY "xyz";
+CREATE ROLE uptade_del_aa_gsb;
+GRANT UPDATE, DELETE, SELECT ON aa_gsb.* TO insertaa_gsb;
+GRANT insertaa_gsb TO connexion3;
+SET DEFAULT ROLE ALL TO connexion3;

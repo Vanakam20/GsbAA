@@ -11,13 +11,14 @@ class Visite {
 	
     public function addvisite()
     {
-    require "db_inc.php";
+    require "db_insert.php";
+    require "db_select.php";
 
     $query = "INSERT INTO visiter (NUMAPPART, NUM_CLI, DATE_VISITE) VALUES (:NUMAPPART, :NUM_CLI, :DATE_VISITE)";
     $queryprop = $rex->prepare("SELECT NUM_CLI FROM clients WHERE LOGIN = :login");
     $queryprop->bindParam(':login', $_SESSION['pseudo']);
     $this->NUM_CLI = $queryprop->execute();
-        $statement = $rex->prepare($query);
+        $statement = $rex_insert->prepare($query);
         $statement->bindValue(':DATE_VISITE', $this->DATE_VISITE);
         $statement->bindValue(':NUMAPPART', $this->NUMAPPART);
         $statement->bindValue(':NUM_CLI', $this->NUM_CLI);
@@ -35,7 +36,7 @@ class Visite {
 	}
     public function getvisite($id,$numappart)
     {
-        require "db_inc.php";
+        require "db_select.php";
 
         $queryprop = $rex->prepare("SELECT * FROM visiter join clients on visiter.NUM_CLI = clients.NUM_CLI where LOGIN = '$id' and NUMAPPART = $numappart");
         $queryprop->execute();
@@ -43,7 +44,7 @@ class Visite {
     }
     public function deletevisite($id,$numappart)
     {
-        require "db_inc.php";
+        require "db_update.php";
         $queryprop = $rex->prepare("SELECT NUM_CLI FROM clients WHERE LOGIN = :login");
         $queryprop->bindParam(':login', $_SESSION['pseudo']);
         $this->NUM_CLI = $queryprop->execute();

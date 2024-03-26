@@ -9,7 +9,7 @@ class PROPRIETAIRES{
 	
 
 public function inscriptionpro($Login) {
-    require "db_inc.php";
+    require "db_update.php";
 							
                                     if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' and PROPRIETAIRES=1")->rowCount()!=0){//si mysqli_num_rows retourne pas 0
                                         echo "Ce pseudo est déjà utilisé par un autre membre, veuillez en choisir un autre svp.";
@@ -32,7 +32,7 @@ public function inscriptionpro($Login) {
 
 public function verifpro($Login) {
    
-    require "db_inc.php";
+    require "db_select.php";
     if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' and PROPRIETAIRES=1")->rowCount()!=0){
         $_SESSION['proprio'] = 1;
         $queryprop = $rex->prepare("SELECT NUM_CLI FROM Clients WHERE LOGIN='$Login'");
@@ -43,7 +43,7 @@ public function verifpro($Login) {
     }
     public function updatepro($id,$colonne,$new)
     {
-        require "db_inc.php";
+        require "db_update.php";
 
         $queryprop = $rex->prepare("Update PROPRIETAIRES set $colonne = '$new' where LOGINpro = '$id'");
         $queryprop->execute();
@@ -52,7 +52,7 @@ public function verifpro($Login) {
 
     public function deletepro($id)
     {
-        require "db_inc.php";
+        require "db_update.php";
 
         $queryprop = $rex->prepare("DELETE FROM PROPRIETAIRES where LOGINpro='$id'");
         $queryprop->execute();

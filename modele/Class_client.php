@@ -17,7 +17,8 @@ class Client {
 	
 
 public function inscription() {
-    require "db_inc.php";
+    require "db_select.php";
+    require "db_insert.php";
 							
                                     if($rex->query("SELECT * FROM Clients WHERE LOGIN='$this->login'")->rowCount()!=0){//si mysqli_num_rows retourne pas 0
                                         echo "Ce pseudo est déjà utilisé par un autre membre, veuillez en choisir un autre svp.";
@@ -25,7 +26,7 @@ public function inscription() {
                                         $Mdp=hash('sha256', $this->mdp);
                                         //insertion du membre dans la base de données:
 										$sql = "INSERT INTO Clients (`PRENOM_CLI`, `ADRESSE_CLI`, `CODEVILLE_CLI`, `NOM_CLI`, `VILLE_CLI`, `TEL_CLI`, `LOGIN`, `MDP`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                                        if($rex->prepare($sql)->execute([$this->prenomCli, $this->adresseCli, $this->codeVilleCli, $this->nomCli, $this->telCli, $this->villeCli, $this->login, $Mdp])){
+                                        if( $rex_insert->prepare($sql)->execute([$this->prenomCli, $this->adresseCli, $this->codeVilleCli, $this->nomCli, $this->telCli, $this->villeCli, $this->login, $Mdp])){
                                             echo "Inscrit avec succès! Vous pouvez vous connecter: <a href='../index.php?action=connexion'>Cliquez ici</a>.";
                                             $TraitementFini=true;//pour cacher le formulaire
                                         } else {
@@ -38,7 +39,7 @@ public function inscription() {
 
 public function connexion($Login, $Mdp) {
    
-    require "db_inc.php";
+    require "db_select.php";
 		$Mdp=hash('sha256', $Mdp);
 if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->rowCount()!=1){
 	echo "Pseudo ou mot de passe incorrect.";
@@ -63,7 +64,7 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
 	}
     public function getcilent($id)
     {
-        require "db_inc.php";
+        require "db_select.php";
 
         $queryprop = $rex->prepare("SELECT * FROM clients where LOGIN = '$id'");
         $queryprop->execute();
@@ -71,7 +72,7 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
     }
     public function updatecilent($id,$colonne,$new)
     {
-        require "db_inc.php";
+        require "db_update.php";
 
         $queryprop = $rex->prepare("Update clients set $colonne = '$new' where LOGIN = '$id'");
         $queryprop->execute();
@@ -79,7 +80,7 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
     }
     public function checkmdp($id,$Mdp)
     {
-        require "db_inc.php";
+        require "db_select.php";
 
         if($rex->query("SELECT * FROM Clients WHERE LOGIN='$id' AND MDP='$Mdp'")->rowCount()==1){
             return TRUE;
@@ -89,7 +90,7 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
     }
     public function updatemdp($id,$new)
     {
-        require "db_inc.php";
+        require "db_update.php";
 
         $queryprop = $rex->prepare("Update clients set MDP = '$new' where LOGIN = '$id'");
         $queryprop->execute();
@@ -97,7 +98,7 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
     }
     public function idclient($id)
     {
-        require "db_inc.php";
+        require "db_select.php";
 
         $queryprop = $rex->prepare("SELECT NUM_CLI FROM Clients WHERE LOGIN='$id'");
         $queryprop->execute();
@@ -105,7 +106,7 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
     }
     public function deleteclient($id)
     {
-        require "db_inc.php";
+        require "db_update.php";
 
         $queryprop = $rex->prepare("DELETE FROM Clients where LOGIN='$id'");
         $queryprop->execute();

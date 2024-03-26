@@ -8,7 +8,7 @@ class arrondissement {
 	
 
 public function getarrondisement() {
-    require "db_inc.php";
+    require "db_select.php";
     
     $queryarron = $rex->prepare("SELECT * FROM arrondissement");
     $queryarron->execute();
