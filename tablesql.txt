@@ -176,8 +176,8 @@ GRANT insertaa_gsb TO connexion2;
 SET DEFAULT ROLE ALL TO connexion2;
 
 CREATE USER connexion3 IDENTIFIED BY "xyz";
-CREATE ROLE uptade_del_aa_gsb;
-GRANT UPDATE, DELETE, SELECT ON aa_gsb.* TO insertaa_gsb;
+CREATE ROLE uptade_del_gsb;
+GRANT UPDATE, DELETE, SELECT ON aa_gsb.* TO uptade_del_gsbs;
 GRANT insertaa_gsb TO connexion3;
 SET DEFAULT ROLE ALL TO connexion3;
 
