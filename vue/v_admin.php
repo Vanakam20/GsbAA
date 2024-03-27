@@ -23,16 +23,21 @@ echo "</div>";
 if(isset($_GET['filtre'])){
 var_dump($recup);
 echo "<table class='admin'>";
-$nomcolonne=array_keys($recup[0]);
 echo  "<tr>";
-for($i=0;$i<count($nomcolonne);$i++){
-echo "<th>".$nomcolonne[$i]."</th>";
-}
+echo "<th>NUM_CLI</th>";
+echo "<th>NOM_CLI</th>";
+echo "<th>PRENOM_CLI</th>";
+echo "<th>ADRESSE_CLI</th>";
+echo "<th>VILLE_CLI</th>";
+echo "<th>CODEVILLE_CLI</th>";
+echo "<th>TEL_CLI</th>";
+echo "<th>LOGIN</th>";
+echo "<th>PROPRIETAIRES</th>";
+echo "<th>Admin</th>";
 echo  "</tr>";
 foreach ($recup as $key => $value) {
 echo  "<tr>";
-$nb1 = count($recup[0]);
-for($i=0;$i<9;$i++){  
+for($i=0;$i<10;$i++){  
      
      echo   "<td>".$value[$i]."</td>";
 }
