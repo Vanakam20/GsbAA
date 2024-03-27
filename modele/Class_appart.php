@@ -59,7 +59,7 @@ class Appartement {
     {
         require "db_select.php";
 
-        $queryprop = $rex->prepare("SELECT appartements.NUMAPPART,RUE,ARRONDISSE,ETAGE,ASCENSEUR,PRIX_LOC,TYPAPPART,PREAVIS,PRIX_CHARG,DATE_LIBRE FROM appartements JOIN locataires ON appartements.NUMAPPART != locataires.NUMAPPART ");
+        $queryprop = $rex->prepare("SELECT DISTINCT appartements.NUMAPPART,RUE,ARRONDISSE,ETAGE,ASCENSEUR,PRIX_LOC,TYPAPPART,PREAVIS,PRIX_CHARG,DATE_LIBRE FROM appartements JOIN locataires ON appartements.NUMAPPART != locataires.NUMAPPART ");
         $queryprop->execute();
 		return $queryprop->fetchAll();
     }
