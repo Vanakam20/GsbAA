@@ -128,7 +128,7 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
     {
         require "db_select.php";
 
-        $queryprop = $rex->prepare("SELECT * FROM clients");
+        $queryprop = $rex->prepare("SELECT NUM_CLI,NOM_CLI,PRENOM_CLI,ADRESSE_CLI,VILLE_CLI,CODEVILLE_CLI,TEL_CLI,LOGIN,PROPRIETAIRES,Admin FROM clients");
         $queryprop->execute();
         return $queryprop->fetchAll();
     }

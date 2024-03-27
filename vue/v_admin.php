@@ -23,14 +23,22 @@ echo "</div>";
 if(isset($_GET['filtre'])){
 var_dump($recup);
 echo "<table class='admin'>";
-for($y=0;$y<count($recup);$y++){
-     echo  "<tr>";
-for($i=0;$i<count($recup[1]);$i++){  
+$nomcolonne=array_keys($recup[0]);
+echo  "<tr>";
+for($i=0;$i<count($nomcolonne);$i++){
+echo "<th>".$nomcolonne[$i]."</th>";
+}
+echo  "</tr>";
+foreach ($recup as $key => $value) {
+echo  "<tr>";
+$nb1 = count($recup[0]);
+for($i=0;$i<9;$i++){  
      
-     echo   "<td>".$recup[$y][$i]."</td>";
+     echo   "<td>".$value[$i]."</td>";
 }
 echo "</tr>";
 }
+
 }
 echo "</table>";
 

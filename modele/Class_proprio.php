@@ -51,5 +51,14 @@ public function verifpro($Login) {
         return $queryprop->fetchAll();
     }
 
+    public function getAllprocount()
+    {
+        require "db_select.php";
+
+        $queryprop = $rex->prepare("SELECT count(*) FROM clients where PROPRIETAIRES = 1");
+        $queryprop->execute();
+        return $queryprop->fetchAll();
+    }
+
 }
  ?>

@@ -141,6 +141,15 @@ public function deletelocataire($id)
             echo "<p>Une erreur est survenu</p>";
         }
     }
+    
+    public function getAllappartcount()
+    {
+        require "db_select.php";
+        $queryprop = $rex->prepare("SELECT count(*) FROM appartements ");
+        $queryprop->execute();
+		return $queryprop->fetchAll();
+    }
+    
 }
 
 ?>
