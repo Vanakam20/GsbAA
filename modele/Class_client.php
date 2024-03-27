@@ -130,7 +130,8 @@ if($rex->query("SELECT * FROM Clients WHERE LOGIN='$Login' AND MDP='$Mdp'")->row
 
         $queryprop = $rex->prepare("SELECT * FROM clients");
         $queryprop->execute();
-        return $queryprop->fetch();
+        return $queryprop->fetchAll();
     }
+    
 }
  ?>

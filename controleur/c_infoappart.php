@@ -51,5 +51,8 @@ if(isset($_GET['acceptedem'])){
 if(isset($_GET['id_dem'])){
     $Demande->deletedemande($_GET['id_dem']);
 }
+if(isset($_POST['prix_loc'])){
+    $Appartement->updateprix($_GET['id'],$_POST['prix_loc']);
+}
 $infodemande=$Demande->getdemandeapparttj($recup['NUMAPPART']);
 ?>

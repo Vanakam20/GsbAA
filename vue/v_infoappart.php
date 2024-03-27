@@ -55,6 +55,7 @@ echo "<h3 class='textcentreinfo'>Mois/".$recup['PRIX_LOC']."€ HT</h3>";
         ECHO "<a class='previewp' href='v_modiflocataire.php?id=".$recup['NUMAPPART']."'>Modifier le locataire</a><br>";   
         echo "<a class=previewp href='v_infoappart.php?id=".$recup['NUMAPPART']."&effacer=1'>Supprimer le locataire</a><br>";
     }
+    ECHO "<a class='previewp' href='v_newprix.php?id=".$recup['NUMAPPART']."'>Modifier le prix</a><br>";   
     echo "<a class=previewp href='v_appartement.php?id=".$recup['NUMAPPART']."&effacerappart=1'>Supprimer l'appartement</a><br>";
     }//fin if
 }//fin if

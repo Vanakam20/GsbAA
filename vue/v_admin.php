@@ -10,19 +10,30 @@
 </head>
 <body class=autre>
 <?php
-include ("..\controleur\c_appartement.php");
+include ("..\controleur\c_admin.php");
 include ('v_hautpage.php');
 
 echo "<div class='filbar'>";
-echo "<a class=case  href='v_appartement.php' >Effacer le Filtre</a>";
-echo "<a class=case href='v_appartement.php?filtre=clients'> Liste Client </a>";
-echo "<a class=case href='v_appartement.php?filtre=proprio'> Liste Propriétaire</a>";
-echo "<a class=case href='v_appartement.php?filtre=locataire'> Liste Locataire</a>";
-echo "<a class=case href='v_appartement.php?filtre=appart'> Liste Apparements</a>";
+echo "<a class=case  href='v_admin.php' >Effacer le Filtre</a>";
+echo "<a class=case href='v_admin.php?filtre=clients'> Liste Client </a>";
+echo "<a class=case href='v_admin.php?filtre=proprio'> Liste Propriétaire</a>";
+echo "<a class=case href='v_admin.php?filtre=locataire'> Liste Locataire</a>";
+echo "<a class=case href='v_admin.php?filtre=appart'> Liste Apparements</a>";
 echo "</div>";
 if(isset($_GET['filtre'])){
-
+var_dump($recup);
+echo "<table class='admin'>";
+for($y=0;$y<count($recup);$y++){
+     echo  "<tr>";
+for($i=0;$i<count($recup[1]);$i++){  
+     
+     echo   "<td>".$recup[$y][$i]."</td>";
 }
-for
+echo "</tr>";
+}
+}
+echo "</table>";
+
+
  ?>
 </body>

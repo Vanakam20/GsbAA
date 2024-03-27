@@ -16,13 +16,16 @@ if(isset($_GET['filtre'])){
             $recup=$Client->getAllcilent();
             break;
         case "proprio":
-            echo "i égal 1";
+            $PROPRIETAIRES = new PROPRIETAIRES();
+            $recup=$PROPRIETAIRES->getAllpro();
             break;
         case "locataire":
-            echo "i égal 2";
+            $Locataires = new Locataires();
+            $recup=$Locataires->getAlllocataire();
             break;
         case "appart":
-            echo "i égal 2";
+            $Appartement = new Appartement();
+            $recup=$Appartement->getAllappartliste();
             break;
         default:
         echo "Une erreur est survenu";        

@@ -41,27 +41,15 @@ public function verifpro($Login) {
     }
 
     }
-    public function updatepro($id,$colonne,$new)
+
+    public function getAllpro()
     {
-        require "db_update.php";
+        require "db_select.php";
 
-        $queryprop = $rex->prepare("Update PROPRIETAIRES set $colonne = '$new' where LOGINpro = '$id'");
+        $queryprop = $rex->prepare("SELECT * FROM clients where PROPRIETAIRES = 1");
         $queryprop->execute();
-        return $queryprop->fetch();
+        return $queryprop->fetchAll();
     }
-
-    public function deletepro($id)
-    {
-        require "db_update.php";
-
-        $queryprop = $rex->prepare("DELETE FROM PROPRIETAIRES where LOGINpro='$id'");
-        $queryprop->execute();
-        if($queryprop->execute()==FALSE){
-            echo "<p>Une erreur est survenu</p>";
-        }
-
-    }
-
 
 }
  ?>

@@ -114,9 +114,7 @@ INSERT INTO `type_appart` (`TYPE`) VALUES ('Penthouse');
 INSERT INTO `type_appart` (`TYPE`) VALUES ('Loft');
 INSERT INTO `type_appart` (`TYPE`) VALUES ('Appartement meublé');
 
-INSERT INTO `clients` (`NUM_CLI`, `PRENOM_CLI`, `ADRESSE_CLI`, `CODEVILLE_CLI`, `NOM_CLI`, `TEL_CLI`, `VILLE_CLI`, `LOGIN`, `MDP`, `PROPRIETAIRES`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
-
-INSERT INTO `clients` (`NOM_CLI`, `PRENOM_CLI`, `ADRESSE_CLI`, `CODEVILLE_CLI`, `TEL_CLI`, `LOGIN`,MDP, PROPRIETAIRES,Admin) VALUES ('aa', 'aa', '4 rue des rats', '76879', '9406233423', 'aa','1234',1,1);
+INSERT INTO `clients` (`NOM_CLI`, `PRENOM_CLI`, `ADRESSE_CLI`, `CODEVILLE_CLI`, `TEL_CLI`, `LOGIN`,MDP, PROPRIETAIRES,Admin) VALUES ('aa', 'aa', '4 rue des rats', '76879', '9406233423', 'aa','961B6DD3EDE3CB8ECBAACBD68DE040CD78EB2ED5889130CCEB4C49268EA4D506',1,1);
 INSERT INTO `clients` (`NOM_CLI`, `PRENOM_CLI`, `ADRESSE_CLI`, `CODEVILLE_CLI`, `TEL_CLI`, `LOGIN`,MDP, PROPRIETAIRES) VALUES ('ff', 'ff', '12 rue des f ', '79034', '423445234', 'ff','1234',1);
 INSERT INTO`clients` (`NOM_CLI`, `PRENOM_CLI`, `ADRESSE_CLI`, `CODEVILLE_CLI`, `TEL_CLI`, `LOGIN`,MDP, PROPRIETAIRES) VALUES ('cc', 'cc', '4 rue des rats', '75003', '54353456', 'cc','1234',1);
 
@@ -177,8 +175,8 @@ SET DEFAULT ROLE ALL TO connexion2;
 
 CREATE USER connexion3 IDENTIFIED BY "xyz";
 CREATE ROLE uptade_del_gsb;
-GRANT UPDATE, DELETE, SELECT ON aa_gsb.* TO uptade_del_gsbs;
-GRANT insertaa_gsb TO connexion3;
+GRANT UPDATE, DELETE, SELECT ON aa_gsb.* TO uptade_del_gsb;
+GRANT uptade_del_gsb TO connexion3;
 SET DEFAULT ROLE ALL TO connexion3;
 
 

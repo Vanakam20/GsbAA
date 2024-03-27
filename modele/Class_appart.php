@@ -122,8 +122,25 @@ public function deletelocataire($id)
         }
     }
 
+    public function getAllappartliste()
+    {
+        require "db_select.php";
+        $queryprop = $rex->prepare("SELECT * FROM appartements ");
+        $queryprop->execute();
+		return $queryprop->fetchAll();
+    }
+    public function updateprix($id,$new)
+    {
+        require "db_update.php";
 
-
+        $queryprop = $rex->prepare("Update appartements set PRIX_LOC = $new where NUMAPPART = '$id'");
+        $queryprop->execute();
+        if($queryprop->execute()==True){
+            echo "<p>Prix changer avec succès</p>";
+        }else{
+            echo "<p>Une erreur est survenu</p>";
+        }
+    }
 }
 
 ?>

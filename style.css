@@ -5,6 +5,13 @@ table {
 th {
 	font-size: 30px;
 }
+th.admin {
+	font-size: 10px;
+}
+table.admin {
+	border: 1px solid black;
+	width : 500px;
+}
 .champs{
 	margin-bottom: 20px;
 	width: 25%;
