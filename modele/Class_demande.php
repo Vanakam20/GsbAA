@@ -108,6 +108,16 @@ class Demande {
         return $queryprop->fetchALL();
     }
 
+    public function getdemandeAll()
+    {
+        require "db_select.php";
+
+        $queryprop = $rex->prepare("SELECT NUM_DEM,TYPE_DEM,DATE_LIMITE,ARRONDISS_DEM,Statue,NOM_CLI,PRENOM_CLI FROM demandes join clients on demandes.NUM_CLI = clients.NUM_CLI ");
+        $queryprop->execute();
+        return $queryprop->fetchALL();
+    }
+
+
     
 
 }

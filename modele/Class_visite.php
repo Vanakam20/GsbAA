@@ -9,19 +9,16 @@ class Visite {
 
     }
 	
-    public function addvisite()
+    public function addvisite($numappart,$date_visite,$cli_id)
     {
     require "db_insert.php";
     require "db_select.php";
 
     $query = "INSERT INTO visiter (NUMAPPART, NUM_CLI, DATE_VISITE) VALUES (:NUMAPPART, :NUM_CLI, :DATE_VISITE)";
-    $queryprop = $rex->prepare("SELECT NUM_CLI FROM clients WHERE LOGIN = :login");
-    $queryprop->bindParam(':login', $_SESSION['pseudo']);
-    $this->NUM_CLI = $queryprop->execute();
         $statement = $rex_insert->prepare($query);
-        $statement->bindValue(':DATE_VISITE', $this->DATE_VISITE);
-        $statement->bindValue(':NUMAPPART', $this->NUMAPPART);
-        $statement->bindValue(':NUM_CLI', $this->NUM_CLI);
+        $statement->bindValue(':DATE_VISITE', $date_visite);
+        $statement->bindValue(':NUMAPPART', $numappart);
+        $statement->bindValue(':NUM_CLI', $cli_id);
         if($statement->execute()){
             echo "Visite ajouté";
         }else{

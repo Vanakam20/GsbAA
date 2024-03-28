@@ -4,6 +4,8 @@ require "..\modele\Class_appart.php";
 require "..\modele\Class_locataire.php";
 require "..\modele\Class_visite.php";
 require "..\modele\Class_demande.php";
+require "..\modele\Class_client.php";
+
 if(isset($_GET["id"])){
 $id=$_GET["id"];
 }else{
@@ -31,8 +33,9 @@ if(isset($_POST['valider'])){
     header("Refresh:0 url=v_infoappart.php?id=$id");
 }
 if(isset($_POST['validervisite'])){
-$Visite->get_infovisite($id,$_POST['datevisite']);
-$Visite->addvisite();
+    $Client = new Client();
+    $cli_id=$Client->idclient($_SESSION['pseudo']);
+$Visite->addvisite($id,$_POST['datevisite'],$cli_id[0]);
 header("Refresh:0 url=v_infoappart.php?id=$id");
 }
 if(isset($_GET['effacervisite'])){

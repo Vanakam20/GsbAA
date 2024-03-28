@@ -60,6 +60,9 @@ class Appartement {
         require "db_select.php";
 
         $queryprop = $rex->prepare("SELECT DISTINCT appartements.NUMAPPART,RUE,ARRONDISSE,ETAGE,ASCENSEUR,PRIX_LOC,TYPAPPART,PREAVIS,PRIX_CHARG,DATE_LIBRE FROM appartements JOIN locataires ON appartements.NUMAPPART != locataires.NUMAPPART ");
+        if($queryprop->rowCount()==0){
+            $queryprop = $rex->prepare("SELECT DISTINCT appartements.NUMAPPART,RUE,ARRONDISSE,ETAGE,ASCENSEUR,PRIX_LOC,TYPAPPART,PREAVIS,PRIX_CHARG,DATE_LIBRE FROM appartements ");
+        }
         $queryprop->execute();
 		return $queryprop->fetchAll();
     }
@@ -125,7 +128,7 @@ public function deletelocataire($id)
     public function getAllappartliste()
     {
         require "db_select.php";
-        $queryprop = $rex->prepare("SELECT * FROM appartements ");
+        $queryprop = $rex->prepare("SELECT `NUMAPPART`, `RUE`, `ARRONDISSE`, `ETAGE`, `PREAVIS`, `TYPAPPART`, `PRIX_LOC`, `PRIX_CHARG`, `ASCENSEUR`, `DATE_LIBRE`,NOM_CLI,PRENOM_CLI FROM appartements join Clients on Clients.NUM_CLI = appartements.NUMEROPROP");
         $queryprop->execute();
 		return $queryprop->fetchAll();
     }

@@ -4,10 +4,8 @@ require "..\modele\Class_appart.php";
 require "..\modele\Class_proprio.php";
 require "..\modele\Class_locataire.php";
 require "..\modele\Class_client.php";
-$Client = new Client();
-$Appartement = new Appartement();
-$PROPRIETAIRES = new PROPRIETAIRES();
-$Locataires = new Locataires();
+require "..\modele\Class_demande.php";
+
 
 if(isset($_GET['filtre'])){
     switch ($_GET['filtre']) {
@@ -26,6 +24,10 @@ if(isset($_GET['filtre'])){
         case "appart":
             $Appartement = new Appartement();
             $recup=$Appartement->getAllappartliste();
+            break;
+        case "demande":
+            $Demande = new Demande();
+            $recup=$Demande->getdemandeAll();
             break;
         default:
         echo "Une erreur est survenu";        

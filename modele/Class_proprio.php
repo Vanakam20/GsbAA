@@ -46,7 +46,7 @@ public function verifpro($Login) {
     {
         require "db_select.php";
 
-        $queryprop = $rex->prepare("SELECT * FROM clients where PROPRIETAIRES = 1");
+        $queryprop = $rex->prepare("SELECT NUM_CLI,NOM_CLI,PRENOM_CLI,ADRESSE_CLI,VILLE_CLI,CODEVILLE_CLI,TEL_CLI,LOGIN,PROPRIETAIRES,Admin FROM clients where PROPRIETAIRES = 1");
         $queryprop->execute();
         return $queryprop->fetchAll();
     }

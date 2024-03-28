@@ -83,7 +83,7 @@ class Locataires {
     {
         require "db_select.php";
 
-        $queryprop = $rex->prepare("SELECT * FROM locataires join appartements on locataires.NUMAPPART = appartements.NUMAPPART ");
+        $queryprop = $rex->prepare("SELECT * FROM locataires");
         $queryprop->execute();
     return $queryprop->fetchALL();
     }

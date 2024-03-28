@@ -2,8 +2,16 @@ table {
 	border: 1px solid black;
 	width : 900px;
 }
+tr {
+	border: 1px solid black;
+}
 th {
 	font-size: 15px;
+	border: 1px solid black;
+}
+td {
+	font-size: 15px;
+	border: 1px solid black;
 }
 th.admin {
 	font-size: 10px;

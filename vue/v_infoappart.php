@@ -63,7 +63,7 @@ echo "</div>";
 if(isset($_SESSION['pseudo'])){
     $nb2 = count($recupVisite);
 if(!isset($_SESSION['proprionum'][0])){
-if($nb2==0 || $nbl==0){
+if($nb2==0 && $nbl==0){
 echo "<div class='caseview' >";
 echo "<h3 class='textcentreinfo'>Visite</h3>";
 echo "<form method='post' action='v_infoappart.php'>";
